@@ -121,5 +121,31 @@ h1, h2, h3, h4 {
   font-family: "Oswald", sans-serif;
   letter-spacing: 0.5px;
 }
+<style>
+.cookie-consent.hidden { display: none; }
+.cookie-consent {
+  position: fixed;
+  bottom: 12px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 9999;
+  pointer-events: none;
+}
+.cookie-consent__card {
+  pointer-events: auto;
+  background: white;
+  padding: 14px 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.cookie-consent__desc { margin: 0; font-size: 0.95rem; color: #333; }
+.btn { background:#ff6b35; color:#fff; border:none; padding:8px 14px; border-radius:10px; cursor:pointer; font-weight:600; }
+</style>
+
 
 
