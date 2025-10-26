@@ -60,6 +60,7 @@
       nav{margin-top:12px;width:100%;text-align:center;}
     }
    /* Button */
+/* Button */
 .btn {
   background-color: #ff6b35;
   color: white;
@@ -73,12 +74,20 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 3px 6px rgba(255, 107, 53, 0.3);
+  outline: none; /* removes focus outline */
 }
 
 .btn:hover {
   background-color: #ff824f;
   transform: translateY(-2px);
   box-shadow: 0 5px 10px rgba(255, 107, 53, 0.5);
+}
+
+/* Removes the blue outline on click or tab focus */
+.btn:focus,
+.btn:active {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 /* Social Icons */
@@ -112,4 +121,5 @@ h1, h2, h3, h4 {
   font-family: "Oswald", sans-serif;
   letter-spacing: 0.5px;
 }
+
 
