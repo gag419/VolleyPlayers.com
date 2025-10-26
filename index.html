@@ -41,6 +41,25 @@
 .btn { background:#ff6b35; color:#fff; border:none; padding:6px 12px; border-radius:8px; cursor:pointer; }
 </style>
 
+<!-- Simple Cookie Consent -->
+<div id="cookie-consent" class="cookie-consent">
+  <div class="cookie-consent__card">
+    <p>We use cookies to improve your experience. By clicking "Accept", you agree to our use of cookies.</p>
+    <button id="accept-cookies" class="btn">Accept</button>
+  </div>
+</div>
+
+<style>
+.cookie-consent { 
+  position: fixed; bottom: 12px; left: 0; right: 0; 
+  display: none; /* start hidden */
+  justify-content: center; z-index: 9999; 
+  pointer-events: auto; background: rgba(0,0,0,0.1); padding:8px; 
+}
+.cookie-consent__card { background:white; padding:12px 16px; border-radius:10px; display:flex; gap:8px; align-items:center; }
+.btn { background:#ff6b35; color:#fff; border:none; padding:6px 12px; border-radius:8px; cursor:pointer; }
+</style>
+
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const banner = document.getElementById('cookie-consent');
@@ -50,8 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Show banner if cookie not set
   if (!document.cookie.split('; ').find(row => row.startsWith(CONSENT_COOKIE + '='))) {
     banner.style.display = 'flex';
-  } else {
-    banner.style.display = 'none';
   }
 
   acceptBtn.addEventListener('click', () => {
@@ -62,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
+
 
 
   <header class="site-header">
@@ -193,6 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
 
 
