@@ -142,4 +142,254 @@
   </footer>
 
 </body>
+<!-- =========================
+  Cookie Consent (HTML)
+  Paste this near the end of <body>
+   ========================= -->
+<div id="cookie-consent" role="dialog" aria-live="polite" aria-label="Cookie consent" class="cookie-consent hidden" tabindex="-1">
+  <div class="cookie-consent__card" role="document">
+    <h2 class="cookie-consent__title">We use cookies</h2>
+    <p class="cookie-consent__desc">
+      We use cookies to improve your experience, analyse traffic and show personalized content.
+      Choose what you accept.
+    </p>
+
+    <form id="cookie-consent-form" class="cookie-consent__form" aria-describedby="cookie-desc">
+      <div class="cookie-row">
+        <label>
+          <input type="checkbox" name="necessary" checked disabled>
+          Necessary (required)
+        </label>
+        <p class="muted">Core site functionality</p>
+      </div>
+
+      <div class="cookie-row">
+        <label>
+          <input type="checkbox" name="preferences">
+          Preferences (UI settings)
+        </label>
+      </div>
+
+      <div class="cookie-row">
+        <label>
+          <input type="checkbox" name="analytics">
+          Analytics (usage)
+        </label>
+      </div>
+
+      <div class="cookie-row">
+        <label>
+          <input type="checkbox" name="marketing">
+          Marketing (personalized ads)
+        </label>
+      </div>
+
+      <div class="cookie-actions">
+        <button type="button" id="accept-all" class="btn">Accept all</button>
+        <button type="button" id="save-preferences" class="btn btn--outline">Save preferences</button>
+        <button type="button" id="reject-nonessential" class="btn btn--ghost">Reject non-essential</button>
+      </div>
+    </form>
+
+    <button id="cookie-close" class="cookie-close" aria-label="Close cookie dialog">×</button>
+  </div>
+</div>
+
+<!-- =========================
+  Cookie Consent CSS
+  Put this in your CSS file or inside <style> in the head
+   ========================= -->
+<style>
+.cookie-consent.hidden { display: none; }
+.cookie-consent {
+  position: fixed;
+  inset: 12px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 9999;
+  pointer-events: none;
+}
+.cookie-consent__card {
+  pointer-events: auto;
+  width: 100%;
+  max-width: 760px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(2,6,23,0.2);
+  padding: 18px;
+  margin: 6px;
+  display: grid;
+  gap: 12px;
+}
+.cookie-consent__title { margin:0; font-size: 1.1rem; }
+.cookie-consent__desc { margin:0; color: #555; font-size: .95rem; }
+.cookie-row { display:flex; align-items:center; gap:10px; }
+.cookie-row label { cursor: pointer; font-weight:600; }
+.cookie-row .muted { margin-left: 8px; color: #777; font-size: .85rem; font-weight:400; }
+.cookie-actions { display:flex; gap:8px; margin-top:6px; flex-wrap:wrap; }
+.btn { background:#ff6b35; color:#fff; border:none; padding:8px 12px; border-radius:10px; cursor:pointer; }
+.btn--outline { background: transparent; border: 1px solid #ddd; color: #111; }
+.btn--ghost { background: transparent; color: #666; border: none; }
+.cookie-close {
+  position:absolute; top:8px; right:10px; background:transparent; border:none; font-size:20px; cursor:pointer;
+}
+/* accessible focus state */
+.cookie-consent__card :focus { outline: 3px solid rgba(255,107,53,0.25); outline-offset: 2px; }
+@media (max-width:600px) {
+  .cookie-consent__card { padding:14px; }
+}
+</style>
+
+<!-- =========================
+  Cookie Consent JS
+  Put this before </body> or in your site JS file
+   ========================= -->
+<script>
+/* Cookie helpers */
+function setCookie(name, value, days = 365) {
+  const expires = days ? '; max-age=' + (days * 24 * 60 * 60) : '';
+  document.cookie = name + '=' + encodeURIComponent(value) + expires + '; path=/; SameSite=Lax';
+}
+function getCookie(name) {
+  const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+  return match ? decodeURIComponent(match[2]) : null;
+}
+function deleteCookie(name) {
+  document.cookie = name + '=; max-age=0; path=/; SameSite=Lax';
+}
+
+/* Consent logic */
+const CONSENT_COOKIE = 'site_cookie_consent'; // stores JSON string
+function readConsent() {
+  const raw = getCookie(CONSENT_COOKIE);
+  if (!raw) return null;
+  try { return JSON.parse(raw); } catch(e) { return null; }
+}
+function saveConsent(obj) {
+  setCookie(CONSENT_COOKIE, JSON.stringify(obj), 365);
+}
+
+/* UI & behaviour */
+document.addEventListener('DOMContentLoaded', () => {
+  const banner = document.getElementById('cookie-consent');
+  const form = document.getElementById('cookie-consent-form');
+  const acceptAll = document.getElementById('accept-all');
+  const saveBtn = document.getElementById('save-preferences');
+  const rejectBtn = document.getElementById('reject-nonessential');
+  const closeBtn = document.getElementById('cookie-close');
+
+  function applyConsentToForm(consent) {
+    if (!consent) return;
+    ['preferences','analytics','marketing'].forEach(name => {
+      const el = form.querySelector(`[name="${name}"]`);
+      if (el) el.checked = !!consent[name];
+    });
+  }
+
+  function showBanner() {
+    banner.classList.remove('hidden');
+    banner.querySelector('.cookie-consent__card').focus();
+  }
+  function hideBanner() {
+    banner.classList.add('hidden');
+  }
+
+  /* initial */
+  const existing = readConsent();
+  if (!existing) {
+    // show banner if no consent stored
+    showBanner();
+  } else {
+    applyConsentToForm(existing);
+    hideBanner();
+    // Load conditional scripts if allowed:
+    handleConditionalScripts(existing);
+  }
+
+  /* actions */
+  acceptAll.addEventListener('click', () => {
+    const consentObj = { necessary: true, preferences: true, analytics: true, marketing: true, timestamp: Date.now() };
+    saveConsent(consentObj);
+    hideBanner();
+    handleConditionalScripts(consentObj);
+  });
+
+  saveBtn.addEventListener('click', () => {
+    const consentObj = {
+      necessary: true,
+      preferences: !!form.querySelector('[name="preferences"]').checked,
+      analytics: !!form.querySelector('[name="analytics"]').checked,
+      marketing: !!form.querySelector('[name="marketing"]').checked,
+      timestamp: Date.now()
+    };
+    saveConsent(consentObj);
+    hideBanner();
+    handleConditionalScripts(consentObj);
+  });
+
+  rejectBtn.addEventListener('click', () => {
+    const consentObj = { necessary: true, preferences: false, analytics: false, marketing: false, timestamp: Date.now() };
+    saveConsent(consentObj);
+    hideBanner();
+    // ensure non-essential cookies/scripts are disabled:
+    handleConditionalScripts(consentObj);
+  });
+
+  closeBtn.addEventListener('click', () => {
+    hideBanner();
+  });
+
+  // keyboard accessibility: ESC closes
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') hideBanner();
+  });
+});
+
+/* Example: load analytics only if analytics consent given.
+   Replace `loadAnalytics()` with your own analytics loader (GA, Plausible, etc.) */
+function handleConditionalScripts(consent) {
+  if (!consent) return;
+  // Example: analytics
+  if (consent.analytics) {
+    loadAnalytics(); // define below or inline your analytics loader
+  } else {
+    // If analytics already loaded earlier, remove it or block by not loading.
+    // You can delete analytics cookies here if you want:
+    // deleteCookie('_ga'); deleteCookie('_gid'); etc.
+  }
+
+  // Example: marketing
+  if (consent.marketing) {
+    // load marketing tags
+  }
+}
+
+/* Example analytics loader (replace with your analytics code) */
+function loadAnalytics() {
+  if (window.__analytics_loaded) return;
+  window.__analytics_loaded = true;
+  // Example: create a script element to load your analytics (placeholder)
+  const s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://example.com/analytics.js'; // REPLACE with your analytics provider script
+  document.head.appendChild(s);
+}
+
+/* Utilities other parts of your site can use */
+window.cookieAPI = {
+  set: setCookie,
+  get: getCookie,
+  del: deleteCookie,
+  readConsent: readConsent,
+  saveConsent: saveConsent,
+  hasConsentFor: function(category) {
+    const c = readConsent();
+    if (!c) return false;
+    if (category === 'necessary') return true;
+    return !!c[category];
+  }
+};
+</script>
+
 </html>
