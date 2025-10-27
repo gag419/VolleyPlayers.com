@@ -24,13 +24,26 @@
 
     nav a{color:white;text-decoration:none;margin-left:18px;font-weight:600;}
     nav a:hover{opacity:0.85;}
+  
+ .brand-badge .initials {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  border-radius: 12px; /* 👈 soft square */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;   /* 👈 fixed shape so it stays a square */
+  height: 64px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
 
-    .brand-badge{
-      display:flex;align-items:center;gap:8px;
-    }
-    .brand-badge .initials{
-      background:rgba(255,255,255,0.2);padding:6px 10px;border-radius:8px;font-weight:700;
-    }
+.brand-badge .initials img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 
     /* main content */
     main{max-width:1100px;margin:40px auto 60px;padding:0 18px}
@@ -146,6 +159,7 @@ h1, h2, h3, h4 {
 .cookie-consent__desc { margin: 0; font-size: 0.95rem; color: #333; }
 .btn { background:#ff6b35; color:#fff; border:none; padding:8px 14px; border-radius:10px; cursor:pointer; font-weight:600; }
 </style>
+
 
 
 
