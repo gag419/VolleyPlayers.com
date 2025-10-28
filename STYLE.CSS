@@ -204,4 +204,6 @@ h2 {
   animation: fontChange 25s infinite; /* 5 fonts × 5 seconds each = 25s total loop */
   transition: font-family 1s ease-in-out;
 }
+.grid { align-items: start; }
+
 
