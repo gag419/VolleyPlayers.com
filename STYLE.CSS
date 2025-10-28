@@ -24,26 +24,13 @@
 
     nav a{color:white;text-decoration:none;margin-left:18px;font-weight:600;}
     nav a:hover{opacity:0.85;}
-  
- .brand-badge .initials {
-  background: rgba(255, 255, 255, 0.2);
-  padding: 10px;
-  border-radius: 12px; /* 👈 soft square */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 64px;   /* 👈 fixed shape so it stays a square */
-  height: 64px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-}
 
-.brand-badge .initials img {
-  width: 48px;
-  height: 48px;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
+    .brand-badge{
+      display:flex;align-items:center;gap:8px;
+    }
+    .brand-badge .initials{
+      background:rgba(255,255,255,0.2);padding:6px 10px;border-radius:8px;font-weight:700;
+    }
 
     /* main content */
     main{max-width:1100px;margin:40px auto 60px;padding:0 18px}
@@ -103,6 +90,7 @@
   box-shadow: none !important;
 }
 
+
 /* Social Icons */
 .social-icons {
   margin-top: 10px;
@@ -134,34 +122,85 @@ h1, h2, h3, h4 {
   font-family: "Oswald", sans-serif;
   letter-spacing: 0.5px;
 }
-<style>
-.cookie-consent.hidden { display: none; }
-.cookie-consent {
-  position: fixed;
-  bottom: 12px;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  z-index: 9999;
-  pointer-events: none;
+form {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  margin: 40px auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+  text-align: left;
 }
-.cookie-consent__card {
-  pointer-events: auto;
-  background: white;
-  padding: 14px 20px;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-  gap: 12px;
+
+h2 {
+  text-align: center;
+  color: #ff6b35;
 }
-.cookie-consent__desc { margin: 0; font-size: 0.95rem; color: #333; }
-.btn { background:#ff6b35; color:#fff; border:none; padding:8px 14px; border-radius:10px; cursor:pointer; font-weight:600; }
-</style>
 
+input, textarea, select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-top: 5px;
+}
 
+select {
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+}
 
+button {
+  width: 100%;
+  background-color: #ff6b35;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
+/* 🔥 BEAUTIFUL BUTTON HOVER */
+button:hover {
+  background-color: #e25b2e;
+  box-shadow: 0 0 10px rgba(255, 107, 53, 0.8);
+  transform: scale(1.05);
+}
 
+/* ---------- PAGE TRANSITION EFFECT ---------- */
 
+body.fade-in {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+body.fade-in-active {
+  opacity: 1;
+}
+
+body.fade-out-active {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+/* fontchange.css */
+/* 🌈 Automatically change fonts every 5 seconds */
+
+@keyframes fontChange {
+  0%   { font-family: 'Poppins', sans-serif; }
+  20%  { font-family: 'Oswald', sans-serif; }
+  40%  { font-family: 'Roboto Slab', serif; }
+  60%  { font-family: 'Courier New', monospace; }
+  80%  { font-family: 'Lobster', cursive; }
+  100% { font-family: 'Poppins', sans-serif; }
+}
+
+/* Apply animation to the entire body text */
+h2 {
+  animation: fontChange 25s infinite; /* 5 fonts × 5 seconds each = 25s total loop */
+  transition: font-family 1s ease-in-out;
+}
