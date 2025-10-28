@@ -404,4 +404,26 @@ h2 {
   margin-top: 30px !important;
 }
 
+/* ✅ Make Tutorials, Tournaments & Plans for Joining cards smaller */
+.card {
+  padding: 14px 16px;
+  min-height: auto;
+  height: auto;
+}
+
+.card img {
+  height: 120px;
+  object-fit: cover;
+}
+
+.card h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.card p {
+  font-size: 0.85rem;
+  line-height: 1.3;
+}
+
 
