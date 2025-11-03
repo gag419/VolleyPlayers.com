@@ -42,7 +42,16 @@
     <input type="email" name="EMAIL" required><br><br>
 
     <label>PHONE NUMBER:</label><br>
-<input type="number" name="PHONE" min="1000000000" max="9999999999" required><br><br>
+  <input 
+  type="text" 
+  name="PHONE" 
+  inputmode="numeric" 
+  pattern="^[0-9]{10}$" 
+  maxlength="10" 
+  required 
+  oninput="this.value = this.value.replace(/[^0-9]/g, '')" 
+  title="Enter 10-digit number only">
+<br><br>
 
     <label>Joining Purpose:</label><br>
     <select name="Joining Purpose" required>
@@ -62,6 +71,7 @@
   </form>
 </body>
 </html>
+
 
 
 
