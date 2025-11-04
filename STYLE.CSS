@@ -313,3 +313,61 @@ body.fade-in-active {
     font-size: 0.85rem;
   }
 }
+/* 🌟 CONTACT BOX STYLING */
+.contact-box {
+  background: linear-gradient(135deg, rgba(255,107,53,0.05), rgba(255,107,53,0.03));
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  border-left: 4px solid #ff6b35;
+}
+
+.contact-box h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.2rem;
+  color: #ff6b35;
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 0.3px;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+
+.label {
+  font-weight: 600;
+  color: #0f1724;
+  margin-bottom: 3px;
+}
+
+.contact-link {
+  color: #0f1724;
+  text-decoration: none;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 5px 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.contact-link:hover {
+  background: #ff6b35;
+  color: white;
+  box-shadow: 0 4px 10px rgba(255,107,53,0.4);
+  transform: translateY(-2px);
+}
+
+/* 📱 Responsive tweaks */
+@media (max-width: 768px) {
+  .contact-box {
+    text-align: center;
+  }
+  .contact-item {
+    align-items: center;
+  }
+}
+
