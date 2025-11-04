@@ -1,60 +1,75 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" href="logo png circle.png">
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="STYLE.CSS">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
- <script src="script.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VolleyPlayers — Volleyball Academy</title>
   <meta name="description" content="VolleyPlayers Volleyball Academy at Oxford International Academy — coaching, batches, schedule, contact." />
   <meta name="google-site-verification" content="DgTO-4AfKBMFgkoprSdVRaNZBNzBZoJG_3-8GGaHmrI" />
+  <link rel="icon" type="image/png" href="logo png circle.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="STYLE.CSS">
+  <script src="script.js" defer></script>
 </head>
-<body>
- 
+
 <body class="fade-in">
-<!-- BOUNCING VOLLEYBALL (standalone overlay) -->
-<div class="volleyball-widget">
-  <div class="volleyball"></div>
-</div>
 
+  <!-- BOUNCING VOLLEYBALL (standalone overlay) -->
+  <div class="volleyball-widget">
+    <div class="volleyball"></div>
+  </div>
 
-
+  <!-- HEADER -->
   <header class="site-header">
     <div class="header-inner">
       <div class="brand-badge">
-        <div class="initials"><img src="logo png circle.png" alt="logo" srcset="" height="50"></div>
+        <div class="initials">
+          <img src="logo png circle.png" alt="logo" height="50">
+        </div>
         <div class="site-title">VolleyPlayers Academy</div>
       </div>
-      <nav>
+
+      <!-- Hamburger button for mobile -->
+      <button class="nav-toggle" aria-label="toggle navigation">
+        ☰
+      </button>
+
+      <nav class="nav-links">
         <a href="#tutorials">Tutorials</a>
         <a href="#upcoming">Upcoming</a>
         <a href="#tournaments">Tournaments</a>
         <a href="#location">Location</a>
         <a href="#">Gallery</a>
-
       </nav>
     </div>
   </header>
 
+  <!-- MAIN -->
   <main>
     <div class="grid">
       <section class="card hero">
         <h2>Train with pro coaching — start your volleyball journey</h2>
-        <p>VolleyPlayers offers structured coaching sessions inside Oxford International Academy. We focus on fundamentals, footwork, hitting, serving, team drills and match play. Batches for kids, teens & adults. Small groups to ensure personal attention.</p>
+        <p>
+          VolleyPlayers offers structured coaching sessions inside Oxford International Academy.
+          We focus on fundamentals, footwork, hitting, serving, team drills, and match play.
+          Batches for kids, teens & adults. Small groups to ensure personal attention.
+        </p>
 
         <div class="features" aria-hidden="true">
-          <div class="chip">Mr. Nitin Singh Certified Volleyball Coach from Indian Sports Authority</div>
-          <div class="chip">nandfd</div>
-          <div class="chip">sir abatenge</div>
+          <div class="chip">Mr. Nitin Singh — Certified Volleyball Coach from Indian Sports Authority</div>
+          <div class="chip">Dedicated Batches</div>
           <div class="chip">Tournament Prep</div>
+          <div class="chip">Skill Improvement</div>
         </div>
 
         <div class="schedule card" id="schedule">
-          <h3 style="margin-top:0">Weekly Schedule</h3>
+          <h3>Weekly Schedule</h3>
           <table>
             <thead>
               <tr><th>Day</th><th>Time</th></tr>
@@ -75,7 +90,7 @@
       <aside class="card">
         <div class="contact" id="contact">
           <strong>Contact</strong>
-          <a href="tel:+918890219508">+91 8890219508 </a>
+          <a href="tel:+918890219508">+91 8890219508</a>
           <a href="mailto:info@volleyplayers.example">info@volleyplayers.example</a>
           <div style="color:var(--muted);font-size:13px">VolleyPlayers</div>
           <div style="margin-top:6px">Hours: Mon–Sat 3:45 PM – 6:00 PM</div>
@@ -83,95 +98,122 @@
 
         <div style="margin-top:12px">
           <strong>Pricing</strong>
-          <div style="margin-top:6px;color:var(--muted);font-size:14px">Monthly: ₹2,000 • Quarterly: ₹5,400 • Trial: Free 1 session</div>
+          <div style="margin-top:6px;color:var(--muted);font-size:14px">
+            Monthly: ₹2,000 • Quarterly: ₹5,400 • Trial: Free 1 session
+          </div>
         </div>
 
- <div style="margin-top:12px" id="location">
+        <div style="margin-top:12px" id="location">
           <strong>Location</strong>
-          <div class="map" aria-hidden="true"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1133.0034815145232!2d75.72405780890418!3d26.908364452610485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db4a884f6afc3%3A0xa6989f8062e8ca42!2sOxford%20International%20Academy!5e1!3m2!1sen!2sin!4v1761568879340!5m2!1sen!2sin" width="100" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
-          <small style="display:block;margin-top:8px;color:var(--muted)">Address : Oxford International Academy,Gandhi Path ,Near Karni Palace ,Jaipur, Rajasthan .</small>
+          <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1133.0034815145232!2d75.72405780890418!3d26.908364452610485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db4a884f6afc3%3A0xa6989f8062e8ca42!2sOxford%20International%20Academy!5e1!3m2!1sen!2sin!4v1761568879340!5m2!1sen!2sin"
+              allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <small style="display:block;margin-top:8px;color:var(--muted)">
+            Address: Oxford International Academy, Gandhi Path, Near Karni Palace, Jaipur, Rajasthan.
+          </small>
         </div>
 
-        
         <div style="margin-top:12px">
           <strong>Follow</strong>
-          <div style="margin-top:8px;display:flex;gap:8px">
-            <a class="btn ghost" href="https://www.instagram.com/volley.players_academy/"><img src="o0u6HK-logo-instagram-clipart-file.png" alt="Instagram" width="50"></a> 
-            <a class="btn ghost" href="https://www.facebook.com/profile.php?id=61581453812177"><img src="59439.png" alt="Facebook" width="45" height="35.5"></a>
-            <a class="btn ghost" href="#"><img src="whatsapp-black-logo-icon--24.png" alt="Whatsapp Channel" width="45" height="40.5"></a>
-            <a class="btn ghost" href="#"><img src="free-youtube-icon-123-thumb.png" alt="Youtube Channel" width="45" height="40.5"></a>
-          </div>
+          <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+            <a href="https://www.instagram.com/volley.players_academy/">
+              <img src="o0u6HK-logo-instagram-clipart-file.png" alt="Instagram" width="40">
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61581453812177">
+              <img src="59439.png" alt="Facebook" width="38">
+            </a>
+            <a href="#">
+              <img src="whatsapp-black-logo-icon--24.png" alt="WhatsApp" width="38">
+            </a>
+            <a href="#">
+              <img src="free-youtube-icon-123-thumb.png" alt="YouTube" width="38">
+            </a>
           </div>
         </div>
       </aside>
     </div>
 
-    <section class="card" style="margin-top:18px" id="tutorials">
-      <h3 style="margin-top:0">PLANS FOR JOINING</h3>
-      <p style="color:var(--muted)"> <table>
-            <thead>
-              <tr><th>Plans</th><th>Benifits</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Joining for 6 Months</td><td>Free 1 MONTH + FREE KIT.</td></tr>
-              <tr><td>Joining for 5 Months</td><td>Additional 1 MONTH FREE</td></tr>
-              <tr><td>Joining for 3 Months</td><td>Get 5 % OFF</td></tr>
-            </tbody>
-          </table></p>
+    <section class="card" style="margin-top:18px" id="plans">
+      <h3>PLANS FOR JOINING</h3>
+      <table>
+        <thead>
+          <tr><th>Plans</th><th>Benefits</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>6 Months</td><td>Free 1 MONTH + FREE KIT</td></tr>
+          <tr><td>5 Months</td><td>Additional 1 MONTH FREE</td></tr>
+          <tr><td>3 Months</td><td>Get 5% OFF</td></tr>
+        </tbody>
+      </table>
     </section>
-    
+
     <section class="card" style="margin-top:18px" id="tutorials">
-      <h3 style="margin-top:0">Tutorials</h3>  
-      <p style="color:var(--muted)">Learn basic to advanced volleyball techniques through our step-by-step tutorials. Serving, passing, setting, and spike drills explained.</p>
-    <div class="Wrapper">
-      <div calss="Image">
-        <img src="https://images.unsplash.com/photo-1666901356149-93f2eb3ba5a2?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dm9sbGV5YmFsbHxlbnwwfHwwfHx8MA%3D%3D&fm=jpg&q=60&w=3000" height="200" alt="tutorials" srcset="">
-        <div class="content">
-          <h1>hello</h1>
+      <h3>Tutorials</h3>
+      <p style="color:var(--muted)">
+        Learn basic to advanced volleyball techniques through step-by-step tutorials.
+        Serving, passing, setting, and spike drills explained.
+      </p>
+      <div class="Wrapper">
+        <div class="Image">
+          <img src="https://images.unsplash.com/photo-1666901356149-93f2eb3ba5a2?ixlib=rb-4.1.0&q=80&w=1200"
+               alt="Volleyball tutorial" style="width:100%;border-radius:10px;">
         </div>
       </div>
-    </div>
     </section>
 
     <section class="card" style="margin-top:18px" id="upcoming">
-      <h3 style="margin-top:0">Upcoming Events</h3>
+      <h3>Upcoming Events</h3>
       <p style="color:var(--muted)">Stay tuned for our upcoming matches, friendly tournaments, and open practice sessions.</p>
     </section>
 
     <section class="card" style="margin-top:18px" id="tournaments">
-      <h3 style="margin-top:0">Tournaments</h3>
+      <h3>Tournaments</h3>
       <p style="color:var(--muted)">VolleyPlayers regularly hosts inter-school and local tournaments. Join and show your skills on the court.</p>
     </section>
-
   </main>
 
   <footer>
-    <div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px">
+    <div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;">
       <div>© <strong>VolleyPlayers</strong> — Volleyball</div>
-      <div style="color:var(--muted)">Made By <strong> Gagan Deep Singh and Team</strong> • Contact: +91 889021950</div>
+      <div style="color:var(--muted)">Made by <strong>Gagan Deep Singh & Team</strong> • Contact: +91 8890219508</div>
     </div>
   </footer>
 
+  <!-- JavaScript for Hamburger Menu -->
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+
+  <style>
+    /* Hamburger Style */
+    .nav-toggle {
+      display: none;
+      font-size: 26px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      .nav-toggle { display: block; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: rgba(0,0,0,0.1);
+        margin-top: 10px;
+        border-radius: 8px;
+        text-align: center;
+      }
+      .nav-links.active { display: flex; }
+      .nav-links a { padding: 10px 0; }
+    }
+  </style>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
