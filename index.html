@@ -5,27 +5,166 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VolleyPlayers — Volleyball Academy</title>
   <meta name="description" content="VolleyPlayers Volleyball Academy at Oxford International Academy — coaching, batches, schedule, contact." />
-  <meta name="google-site-verification" content="DgTO-4AfKBMFgkoprSdVRaNZBNzBZoJG_3-8GGaHmrI" />
   <link rel="icon" type="image/png" href="logo png circle.png" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Styles -->
   <link rel="stylesheet" href="STYLE.CSS">
-  <script src="script.js" defer></script>
+
+  <style>
+    /* 🌟 GLOBAL ENHANCEMENTS */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: linear-gradient(180deg, #fffaf5 0%, #f2f6ff 100%);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    /* 🌈 Glow on Header */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: linear-gradient(135deg, #ff6b35, #ff945c);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+      transition: all 0.3s ease;
+    }
+    header.site-header:hover {
+      box-shadow: 0 6px 25px rgba(255,107,53,0.5);
+    }
+
+    /* ✨ Hero Section Background */
+    .hero {
+      background: linear-gradient(180deg, rgba(255,107,53,0.05) 0%, rgba(255,107,53,0.02) 100%);
+      animation: slideUp 1s ease-in-out;
+    }
+
+    /* 🎇 Title Glow */
+    .hero h2 {
+      background: linear-gradient(90deg, #ff6b35, #ffb48f, #ff6b35);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glowMove 6s linear infinite;
+    }
+
+    /* ✨ Floating WhatsApp Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 200;
+      background-color: #25D366;
+      color: white;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      animation: pulse 2.5s infinite;
+    }
+    .whatsapp-float img {
+      width: 32px;
+      height: 32px;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+
+    /* 🌟 Section Hover Effect */
+    .card:hover {
+      transform: translateY(-4px);
+      transition: 0.3s;
+      box-shadow: 0 6px 16px rgba(255,107,53,0.15);
+    }
+
+    /* 💨 Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37,211,102, 0.6); }
+      70% { box-shadow: 0 0 0 15px rgba(37,211,102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37,211,102, 0); }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes glowMove {
+      0% { filter: drop-shadow(0 0 3px #ff6b35); }
+      50% { filter: drop-shadow(0 0 10px #ff6b35); }
+      100% { filter: drop-shadow(0 0 3px #ff6b35); }
+    }
+
+    /* 🌅 Hero Banner Image (Optional top visual) */
+    .hero-banner {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 18px;
+      height: 230px;
+    }
+    .hero-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.8);
+    }
+    .hero-banner::after {
+      content: "🏐 Play. Learn. Rise.";
+      position: absolute;
+      bottom: 10%;
+      left: 5%;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+      animation: fadeIn 2s ease;
+    }
+
+    /* 📱 Floating Back to Top */
+    .to-top {
+      position: fixed;
+      bottom: 90px;
+      right: 22px;
+      width: 40px;
+      height: 40px;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.4s;
+      z-index: 200;
+    }
+
+    .to-top.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  </style>
 </head>
 
-<body class="fade-in">
+<body>
 
-  <!-- BOUNCING VOLLEYBALL (standalone overlay) -->
-  <div class="volleyball-widget">
-    <div class="volleyball"></div>
-  </div>
-
-  <!-- HEADER -->
+  <!-- Header -->
   <header class="site-header">
     <div class="header-inner">
       <div class="brand-badge">
@@ -35,10 +174,8 @@
         <div class="site-title">VolleyPlayers Academy</div>
       </div>
 
-      <!-- Hamburger button for mobile -->
-      <button class="nav-toggle" aria-label="toggle navigation">
-        ☰
-      </button>
+      <!-- Hamburger -->
+      <button class="nav-toggle">☰</button>
 
       <nav class="nav-links">
         <a href="#tutorials">Tutorials</a>
@@ -50,22 +187,24 @@
     </div>
   </header>
 
-  <!-- MAIN -->
   <main>
     <div class="grid">
       <section class="card hero">
-        <h2>Train with pro coaching — start your volleyball journey</h2>
+        <!-- Hero Banner -->
+        <div class="hero-banner">
+          <img src="https://images.unsplash.com/photo-1505664063608-64f1bcd42a8b?w=1600&q=80" alt="Volleyball Action">
+        </div>
+
+        <h2>Train with Pro Coaching — Start Your Volleyball Journey</h2>
         <p>
-          VolleyPlayers offers structured coaching sessions inside Oxford International Academy.
-          We focus on fundamentals, footwork, hitting, serving, team drills, and match play.
-          Batches for kids, teens & adults. Small groups to ensure personal attention.
+          VolleyPlayers offers structured coaching sessions inside Oxford International Academy. We focus on fundamentals,
+          footwork, serving, drills, and teamwork to make you a champion.
         </p>
 
-        <div class="features" aria-hidden="true">
-          <div class="chip">Mr. Nitin Singh — Certified Volleyball Coach from Indian Sports Authority</div>
-          <div class="chip">Dedicated Batches</div>
-          <div class="chip">Tournament Prep</div>
-          <div class="chip">Skill Improvement</div>
+        <div class="features">
+          <div class="chip">🏆 Certified Coach</div>
+          <div class="chip">🎯 Personal Attention</div>
+          <div class="chip">🔥 Tournament Prep</div>
         </div>
 
         <div class="schedule card" id="schedule">
@@ -76,144 +215,68 @@
             </thead>
             <tbody>
               <tr><td>Mon - Sat</td><td>3:45 PM - 6:00 PM</td></tr>
-              <tr><td>Mon - Fri</td><td>3 PM - 6:00 PM</td></tr>
-              <tr><td>Sundays & Festivals</td><td>Classes Off</td></tr>
+              <tr><td>Sunday</td><td>Classes Off</td></tr>
             </tbody>
           </table>
         </div>
 
-        <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
-          <a class="btn" href="formhtml.html">Enroll Now</a>
-        </div>
+        <a class="btn" href="formhtml.html" style="margin-top:14px;">Enroll Now</a>
       </section>
 
+      <!-- Aside -->
       <aside class="card">
-        <div class="contact" id="contact">
-          <strong>Contact</strong>
-          <a href="tel:+918890219508">+91 8890219508</a>
-          <a href="mailto:info@volleyplayers.example">info@volleyplayers.example</a>
-          <div style="color:var(--muted);font-size:13px">VolleyPlayers</div>
-          <div style="margin-top:6px">Hours: Mon–Sat 3:45 PM – 6:00 PM</div>
+        <strong>Contact</strong>
+        <a href="tel:+918890219508">📞 +91 8890219508</a>
+        <a href="mailto:info@volleyplayers.example">✉️ info@volleyplayers.example</a>
+
+        <div class="map" id="location" style="margin-top:10px;">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1133.0034815145232!2d75.72405780890418!3d26.908364452610485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db4a884f6afc3%3A0xa6989f8062e8ca42!2sOxford%20International%20Academy!5e1!3m2!1sen!2sin!4v1761568879340!5m2!1sen!2sin"
+            allowfullscreen loading="lazy"></iframe>
         </div>
 
-        <div style="margin-top:12px">
-          <strong>Pricing</strong>
-          <div style="margin-top:6px;color:var(--muted);font-size:14px">
-            Monthly: ₹2,000 • Quarterly: ₹5,400 • Trial: Free 1 session
-          </div>
-        </div>
-
-        <div style="margin-top:12px" id="location">
-          <strong>Location</strong>
-          <div class="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1133.0034815145232!2d75.72405780890418!3d26.908364452610485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db4a884f6afc3%3A0xa6989f8062e8ca42!2sOxford%20International%20Academy!5e1!3m2!1sen!2sin!4v1761568879340!5m2!1sen!2sin"
-              allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
-          <small style="display:block;margin-top:8px;color:var(--muted)">
-            Address: Oxford International Academy, Gandhi Path, Near Karni Palace, Jaipur, Rajasthan.
-          </small>
-        </div>
-
-        <div style="margin-top:12px">
-          <strong>Follow</strong>
-          <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
-            <a href="https://www.instagram.com/volley.players_academy/">
-              <img src="o0u6HK-logo-instagram-clipart-file.png" alt="Instagram" width="40">
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=61581453812177">
-              <img src="59439.png" alt="Facebook" width="38">
-            </a>
-            <a href="#">
-              <img src="whatsapp-black-logo-icon--24.png" alt="WhatsApp" width="38">
-            </a>
-            <a href="#">
-              <img src="free-youtube-icon-123-thumb.png" alt="YouTube" width="38">
-            </a>
-          </div>
-        </div>
+        <small style="display:block;margin-top:8px;color:var(--muted)">Address: Oxford International Academy, Gandhi Path, Jaipur, Rajasthan</small>
       </aside>
     </div>
 
-    <section class="card" style="margin-top:18px" id="plans">
-      <h3>PLANS FOR JOINING</h3>
-      <table>
-        <thead>
-          <tr><th>Plans</th><th>Benefits</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>6 Months</td><td>Free 1 MONTH + FREE KIT</td></tr>
-          <tr><td>5 Months</td><td>Additional 1 MONTH FREE</td></tr>
-          <tr><td>3 Months</td><td>Get 5% OFF</td></tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section class="card" style="margin-top:18px" id="tutorials">
-      <h3>Tutorials</h3>
-      <p style="color:var(--muted)">
-        Learn basic to advanced volleyball techniques through step-by-step tutorials.
-        Serving, passing, setting, and spike drills explained.
-      </p>
-      <div class="Wrapper">
-        <div class="Image">
-          <img src="https://images.unsplash.com/photo-1666901356149-93f2eb3ba5a2?ixlib=rb-4.1.0&q=80&w=1200"
-               alt="Volleyball tutorial" style="width:100%;border-radius:10px;">
-        </div>
-      </div>
-    </section>
-
-    <section class="card" style="margin-top:18px" id="upcoming">
+    <section class="card" id="upcoming">
       <h3>Upcoming Events</h3>
-      <p style="color:var(--muted)">Stay tuned for our upcoming matches, friendly tournaments, and open practice sessions.</p>
+      <p>Stay tuned for friendly matches, tournaments, and open practice sessions.</p>
     </section>
 
-    <section class="card" style="margin-top:18px" id="tournaments">
+    <section class="card" id="tournaments">
       <h3>Tournaments</h3>
-      <p style="color:var(--muted)">VolleyPlayers regularly hosts inter-school and local tournaments. Join and show your skills on the court.</p>
+      <p>VolleyPlayers hosts inter-school and local tournaments regularly. Join and shine on the court!</p>
     </section>
   </main>
 
   <footer>
-    <div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;">
+    <div style="max-width:1100px;margin:auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
       <div>© <strong>VolleyPlayers</strong> — Volleyball</div>
-      <div style="color:var(--muted)">Made by <strong>Gagan Deep Singh & Team</strong> • Contact: +91 8890219508</div>
+      <div>Made by <strong>Gagan Deep Singh & Team</strong> • Contact: +91 8890219508</div>
     </div>
   </footer>
 
-  <!-- JavaScript for Hamburger Menu -->
+  <!-- 🌿 Floating WhatsApp -->
+  <a href="https://wa.me/918890219508" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
+
+  <!-- 🆙 Back to Top -->
+  <div class="to-top" id="toTop">↑</div>
+
   <script>
+    // Mobile Menu Toggle
     const navToggle = document.querySelector('.nav-toggle');
     const navLinks = document.querySelector('.nav-links');
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
 
-    navToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
+    // Scroll to top button
+    const toTop = document.getElementById('toTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) toTop.classList.add('show');
+      else toTop.classList.remove('show');
     });
+    toTop.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
   </script>
-
-  <style>
-    /* Hamburger Style */
-    .nav-toggle {
-      display: none;
-      font-size: 26px;
-      background: none;
-      border: none;
-      color: white;
-      cursor: pointer;
-    }
-    @media (max-width: 768px) {
-      .nav-toggle { display: block; }
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background: rgba(0,0,0,0.1);
-        margin-top: 10px;
-        border-radius: 8px;
-        text-align: center;
-      }
-      .nav-links.active { display: flex; }
-      .nav-links a { padding: 10px 0; }
-    }
-  </style>
 </body>
 </html>
