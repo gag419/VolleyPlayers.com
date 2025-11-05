@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gallery — VolleyPlayers Academy</title>
+  <meta name="robots" content="index, follow" />
   <link rel="icon" type="image/png" href="logo png circle.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -207,7 +208,7 @@
       </div>
       <nav>
         <a href="index.html">Home</a>
-        <a href="about.html">About</a>
+        <a href="tutorials.html">Tutorials</a>
         <a href="formhtml.html">Enroll</a>
         <a href="gallery.html">Gallery</a>
       </nav>
@@ -232,26 +233,26 @@
   <div class="gallery-grid">
     <!-- Training -->
     <div class="gallery-item" data-category="training">
-      <img src="" alt="Training Session">
+      <img src="https://via.placeholder.com/400x250?text=Training+Session" alt="Training Session">
     </div>
     <div class="gallery-item" data-category="training">
-      <img src="" alt="Team Drill">
+      <img src="https://via.placeholder.com/400x250?text=Team+Drill" alt="Team Drill">
     </div>
 
     <!-- Matches -->
     <div class="gallery-item" data-category="matches">
-      <img src="" alt="Match Play">
+      <img src="https://via.placeholder.com/400x250?text=Match+Play" alt="Match Play">
     </div>
     <div class="gallery-item" data-category="matches">
-      <img src="" alt="Team Match">
+      <img src="https://via.placeholder.com/400x250?text=Team+Match" alt="Team Match">
     </div>
 
     <!-- Awards -->
     <div class="gallery-item" data-category="awards">
-      <img src="" alt="Award Ceremony">
+      <img src="https://via.placeholder.com/400x250?text=Award+Ceremony" alt="Award Ceremony">
     </div>
     <div class="gallery-item" data-category="awards">
-      <img src="" alt="Trophy Presentation">
+      <img src="https://via.placeholder.com/400x250?text=Trophy+Presentation" alt="Trophy Presentation">
     </div>
   </div>
 
@@ -273,7 +274,6 @@
       btn.addEventListener('click', () => {
         buttons.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-
         const filter = btn.dataset.filter;
         items.forEach(item => {
           item.style.display = (filter === 'all' || item.dataset.category === filter) ? 'block' : 'none';
@@ -284,14 +284,12 @@
     // Lightbox
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = lightbox.querySelector('img');
-
     document.querySelectorAll('.gallery-item img').forEach(img => {
       img.addEventListener('click', () => {
         lightboxImg.src = img.src;
         lightbox.classList.add('active');
       });
     });
-
     lightbox.addEventListener('click', () => lightbox.classList.remove('active'));
   </script>
 </body>
