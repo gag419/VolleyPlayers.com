@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://gag419.github.io/VolleyPlayers.com/sitemap.xml
